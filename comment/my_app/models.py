@@ -15,3 +15,6 @@ class Comment(models.Model):
         (5, "5")
     )
     ranking = models.IntegerField(choices=RANKING_CHOICES, default=1)
+
+    def __str__(self):
+        return self.body
