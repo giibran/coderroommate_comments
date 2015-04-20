@@ -8,7 +8,7 @@ class CommentsCreateForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = [
-            'body', 'is_inappropriate', 'ranking'
+            'body'
         ]
 
     def save(self, commit=True):

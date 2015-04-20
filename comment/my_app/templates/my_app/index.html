@@ -1,13 +1,18 @@
 {% extends 'common/base.html' %}
 
+{% load bootstrap3 %}
+
 {% block content %}
 
 <div class="container">
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Welcome!</h1>
-        </div><!-- container -->
-    </div><!-- jumbotron -->
-</div><!-- container -->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Comment Index</h1>
+            {% buttons %}
+            <a type="submit" class="btn btn-primary" href="{% url 'my_app:create_comment' %}" >Create Comment</a>
+            {% endbuttons %}
+        </div><!-- col-md -->
+    </div><!-- row -->
+</div>
 
 {% endblock %}
