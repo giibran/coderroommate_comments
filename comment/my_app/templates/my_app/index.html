@@ -5,23 +5,36 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h1>Comment Index</h1>
-            <ol>
-	            {% for comment in object_list%}
-	            <li class="well">{{ comment.body }}</li>
-	            {% empty %}
-	            <div>
-	                <h3>No comments in database, add a new one!</h3>
-	            </div>
-	            {% endfor %}
-            </ol>
-            {% buttons %}
-            <a type="submit" class="btn btn-primary" href="{% url 'my_app:create_comment' %}" >Create Comment</a>
-            {% endbuttons %}
-        </div><!-- col-md -->
-    </div><!-- row -->
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1>Comment Index</h1>
+			<table class="table table-striped">
+				{% for comment in comments%}
+				<tr>
+
+						<td>
+						testing : {{ comment.body }}
+						</td>
+						<td>
+							<a href="#"><i class="icon-pencil"></i> Edit</a>
+						</td>
+						<td>
+							<a href="#"><i class="icon-trash"></i> Delete</a>
+						</td>
+
+				</tr>
+				<a class="btn" href="#"><i class="icon-align-left"></i></a>
+				{% empty %}
+				<div>
+					<h3>No comments in database, add a new one!</h3>
+				</div>
+				{% endfor %}
+			</table>
+			{% buttons %}
+			<a type="submit" class="btn btn-primary" href="{% url 'my_app:create_comment' %}" >Create Comment</a>
+			{% endbuttons %}
+		</div><!-- col-md -->
+	</div><!-- row -->
 </div>
 
 {% endblock %}
